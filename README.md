@@ -24,8 +24,11 @@ Middleware: Body-parser, Cors, Dotenv
 ⚙️ Installation & Setup
 Project ko local machine par chalane ke liye niche diye gaye steps follow karein:
 1.git clone <your-repository-link>
+
 cd <project-folder-name>
 2.npm install
+
 3.PORT=5000 MONGO_URI=your_mongodb_connection_string
 SESSION_SECRET=your_secret_key_here
+
 4.npm start
