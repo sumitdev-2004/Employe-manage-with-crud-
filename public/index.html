@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Control Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-grid">
+        <div class="stat-card">
+            <h3>Total Staff</h3>
+            <p id="stat-count"></p>
+        </div>
+        <div class="stat-card" style="border-left-color: var(--success)">
+            <h3>Total Payroll</h3>
+            <p id="stat-payroll"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-section" id="add">
+            <h2 id="form-title">Add Employee</h2>
+                <input type="hidden" id="edit-index" value="-1">
+                <div class="input-group">
+                    <label> Employee ID</label>
+                    <input type="text" id="empId" placeholder="Enter Your EmployeId" required>
+                </div>
+                <div class="input-group">
+                    <label> Full Name</label>
+                    <input type="text" id="empName" placeholder="Enter Your Name" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="empEmail" placeholder="Enter Your Email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="userPass" placeholder="Enter Your Password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmPass" placeholder="Confirm Your Password" required>
+                </div>
+                <div class="input-group">
+                    <label>Joining Date</label>
+                    <input type="date" id="empDate" required>
+                </div>
+                <div class="input-group">
+                    <label>Salary ($)</label>
+                    <input type="number" id="empSalary" placeholder="Enter Your Salary" required>
+                </div>
+                <button type="submit" class="btn save-btn" id="submit-btn" onclick="addEmploye()">Save Employee</button>
+        </div>
+        <div class="form-section" id="update">
+            <h2 id="form-title">Update Employee</h2>
+            <form id="empForm">
+                <input type="hidden" id="edit-index" value="-1">
+                <div class="input-group">
+                    <label> Update Employee ID</label>
+                    <input type="text" id="UId" placeholder="EMP-001" required>
+                    <input type="hidden" id="id">
+                </div>
+                <div class="input-group">
+                    <label>Update Full Name</label>
+                    <input type="text" id="UName" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label> Update Email</label>
+                    <input type="email" id="UEmail" placeholder="john@company.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Update Joining Date</label>
+                    <input type="date" id="UDate" required>
+                </div>
+                <div class="input-group">
+                    <label>Update Salary ($)</label>
+                    <input type="number" id="USalary" placeholder="5000" required>
+                </div>
+                <button type="submit" class="btn save-btn" id="submit-btn" onclick="update()">Update Employee</button>
+            </form>
+        </div>
+
+        <div class="form-section" id="attendence-form" style="display: none;">
+            <h2 id="form-title">ADD ATTENDANCE</h2>
+            <form id="empForm">
+                <div class="input-group">
+                    <label>ATTENDENCE EMPLOYE NAME </label>
+                    <input type="name" id="Em_name" required>
+                    <br><br>
+                    <label>Update Joining Date</label>
+                    <input type="date" id="Em_Date" required>
+                    <input type="hidden" id="attendence_email" placeholder="john@company.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Attendance Status</label>
+                    <select id="UStatus">
+                        <option value="">-- Select Status --</option>
+                        <option value="P">Present</option>
+                        <option value="A">Absent</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn save-btn" id="submit-btn" onclick="attendence_data(event)">ADD
+                    ATTENDENCE</button>
+            </form>
+        </div>
+
+
+        <div class="table-section">
+            <h2>Employee Management List</h2>
+            <table id="empTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Joined</th>
+                        <th>Salary</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+                <br>
+
+                <button class="logout" onclick="logout()">Logout page</button>
+
+        </div>
+    </div>
+
+
+
+    <script src="./script.js">
+    </script>
+</body>
+
+</html>

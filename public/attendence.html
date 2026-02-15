@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="attendance-container">
+        <div class="header-section">
+            <h2>Attendance Records</h2>
+            <div class="filter-group">
+                <label for="userSelect">Select Employee:</label>
+                <select id="userSelect" onchange="selectEmploye()">
+                    <option value="alldata">All Records</option>
+                </select>
+
+                <div class="filter-item">
+                    <label for="dateSelect">Select Date:</label>
+                         <select id="userSelectDate" onchange="selectDate()">
+                    <option value="alldate">All Dates</option>
+                </select>
+                </div>
+              
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email </th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTableBody">
+                </tbody>
+            </table>
+           <br>
+                <a href="index.html" class="back-home-btn">← Back to Home</a>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
